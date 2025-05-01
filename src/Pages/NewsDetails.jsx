@@ -1,17 +1,17 @@
 import React, { useEffect, useState } from "react";
-import { useLoaderData, useParams } from "react-router";
+import { useLoaderData, useNavigate, useParams } from "react-router";
 import Header from "../Components/Header";
 import RightNav from "../Components/SideNav/RightNav";
 import { FaArrowLeft } from "react-icons/fa";
 
 const NewsDetails = () => {
   const [news, setNews] = useState({});
+  const navigate = useNavigate();
   const data = useLoaderData();
   const { id } = useParams();
   useEffect(() => {
     const singleNews = data.find((d) => d.id == id);
     setNews(singleNews);
-    console.log(singleNews);
   }, [data, id]);
   return (
     <div className="w-11/12 mx-auto">
@@ -23,8 +23,11 @@ const NewsDetails = () => {
             <img className="w-full" src={news.image_url} alt="" />
             <h1 className="card-title text-3xl my-4">{news.title}</h1>
             <p className="text-base-300">{news.details}</p>
-            <button className="btn btn-secondary my-4">
-            <FaArrowLeft/> All news in this category
+            <button
+              onClick={()=>navigate(`/categories/${news.category_id}`)}
+              className="btn btn-secondary my-4"
+            >
+              <FaArrowLeft /> All news in this category
             </button>
           </div>
         </main>

@@ -1,5 +1,6 @@
 import React, { Suspense, use } from "react";
 import { NavLink } from "react-router";
+import Loader from "../Loader";
 
 const categoryPromise = fetch("/categories.json").then((res) => res.json());
 const LeftNav = () => {
@@ -7,7 +8,7 @@ const LeftNav = () => {
   return (
     <div className="px-4 h-fit sticky top-2">
       <h2 className="mb-3 font-bold text-xl ">All category</h2>
-      <Suspense fallback="Loading.....">
+      <Suspense fallback={<Loader />}>
         <div className="cat-nav flex flex-col gap-2">
           {categories.map((category) => (
             <NavLink

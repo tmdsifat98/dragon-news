@@ -5,6 +5,7 @@ import MarqueTag from "../Components/MarqueTag";
 import Navbar from "../Components/Navbar";
 import LeftNav from "../Components/SideNav/LeftNav";
 import RightNav from "../Components/SideNav/RightNav";
+import Loader from "../Components/Loader";
 
 const Root = () => {
   const { state } = useNavigation();
@@ -24,7 +25,9 @@ const Root = () => {
         <aside>
           <LeftNav />
         </aside>
-        <div className="col-span-2">{state=="loading" ? "loading..." : <Outlet />}</div>
+        <div className="col-span-2">
+          {state == "loading" ? <Loader /> : <Outlet />}
+        </div>
         <aside>
           <RightNav />
         </aside>
