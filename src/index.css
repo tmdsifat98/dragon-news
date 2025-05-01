@@ -6,12 +6,16 @@
   name: "light";
   default: true;
   --color-base-100: #ffffff;
-  --color-base-200: #F3F3F3;
-  --color-base-300: #706F6F;
+  --color-base-200: #f3f3f3;
+  --color-base-300: #706f6f;
   --color-primary: #403f3f;
   --color-secondary: #d72050;
 }
-a.active{
-  color: red ;
+ul > a.active {
+  color: red;
   font-weight: 500;
+}
+.cat-nav > a.active {
+  color: rgb(0, 0, 0);
+  background-color: rgb(189, 189, 189);
 }

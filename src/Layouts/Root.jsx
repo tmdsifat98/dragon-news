@@ -19,7 +19,7 @@ const Root = () => {
       <nav className="w-11/12 mx-auto my-5">
         <Navbar />
       </nav>
-      <div className="grid grid-cols-4 w-11/12 mx-auto gap-6 mt-4">
+      <div className="grid grid-cols-4 w-11/12 mx-auto gap-12 mt-4">
         <aside>
           <LeftNav />
         </aside>

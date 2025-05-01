@@ -13,7 +13,7 @@ const NewsCard = () => {
     const filteredNews = news.filter((n) => n.category_id == id);
     setNewsCard(filteredNews);
   }, [id, news]);
-  return <div>{newsCard.map(singleNews=><SingleNews key={singleNews.id} singleNews={singleNews}/>)}</div>;
+  return <div className="mt-6">{newsCard.map(singleNews=><SingleNews key={singleNews.id} singleNews={singleNews}/>)}</div>;
 };
 
 export default NewsCard;

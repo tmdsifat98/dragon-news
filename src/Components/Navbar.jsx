@@ -1,13 +1,13 @@
 import React from "react";
-import { Link, NavLink } from "react-router";
+import { NavLink } from "react-router";
 import user from "../assets/user.png";
 
 const Navbar = () => {
   return (
     <div className="flex justify-between">
       <div></div>
-      <ul className="flex gap-4 items-center">
-        <NavLink to="/">Home</NavLink>
+      <ul className="flex text-xl font-semibold text-base-300 gap-4 items-center">
+        <NavLink to="/categories/0">Home</NavLink>
         <NavLink to="/about">About</NavLink>
         <NavLink to="/career">Career</NavLink>
       </ul>

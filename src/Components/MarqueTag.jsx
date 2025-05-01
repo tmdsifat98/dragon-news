@@ -4,7 +4,7 @@ import Marquee from "react-fast-marquee";
 const MarqueTag = () => {
   return (
     <Marquee
-      className="text-xl font-semibold text-base-300 gap-4"
+      className="text-xl font-semibold text-base-300 gap-4 px-3"
       pauseOnHover={true}
       speed={40}
     >
