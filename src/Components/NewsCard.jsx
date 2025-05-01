@@ -1,10 +1,10 @@
-import React, { use, useEffect, useState } from "react";
-import { useParams } from "react-router";
+import React, { useEffect, useState } from "react";
+import { useLoaderData, useParams } from "react-router";
 import SingleNews from "./SingleNews";
-const newsPromise = fetch("/news.json").then((res) => res.json());
+
 const NewsCard = () => {
   const [newsCard, setNewsCard] = useState([]);
-  const news = use(newsPromise);
+  const news = useLoaderData()
   const { id } = useParams();
   useEffect(() => {
     if (id == "0") return setNewsCard(news);

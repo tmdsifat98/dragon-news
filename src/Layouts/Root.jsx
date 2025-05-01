@@ -1,5 +1,5 @@
 import React from "react";
-import { Outlet } from "react-router";
+import { Outlet, useNavigation } from "react-router";
 import Header from "../Components/Header";
 import MarqueTag from "../Components/MarqueTag";
 import Navbar from "../Components/Navbar";
@@ -7,6 +7,7 @@ import LeftNav from "../Components/SideNav/LeftNav";
 import RightNav from "../Components/SideNav/RightNav";
 
 const Root = () => {
+  const { state } = useNavigation();
   return (
     <div>
       <header>
@@ -23,9 +24,7 @@ const Root = () => {
         <aside>
           <LeftNav />
         </aside>
-        <div className="col-span-2">
-          <Outlet />
-        </div>
+        <div className="col-span-2">{state=="loading" ? "loading..." : <Outlet />}</div>
         <aside>
           <RightNav />
         </aside>

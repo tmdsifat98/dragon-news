@@ -1,8 +1,9 @@
 import { FaStar, FaRegEye, FaShareAlt, FaBookmark } from "react-icons/fa";
 import { FiMoreHorizontal } from "react-icons/fi";
+import { Link } from "react-router";
 
 const SingleNews = ({ singleNews }) => {
-  const { title, rating, total_view, author, image_url, details } = singleNews;
+  const { id,title, rating, total_view, author, image_url, details } = singleNews;
 
   const formatDate = (dateString) => {
     const options = { year: "numeric", month: "long", day: "numeric" };
@@ -30,20 +31,22 @@ const SingleNews = ({ singleNews }) => {
           <FaShareAlt size={20} className="cursor-pointer" />
         </div>
       </div>
-      <h2 className="card-title py-5 px-3 text-lg">
-        {title}
-      </h2>
+      <h2 className="card-title py-5 px-3 text-lg">{title}</h2>
       <figure>
-        <img src={image_url} alt="news" className="w-full h-96 px-5 rounded-lg object-cover" />
+        <img
+          src={image_url}
+          alt="news"
+          className="w-full h-96 px-5 rounded-lg object-cover"
+        />
       </figure>
 
       <div className="card-body">
         <p className="text-sm text-gray-700">
           {details.length > 300 ? details.slice(0, 300) + "..." : details}
         </p>
-        <p className="text-orange-500 font-semibold cursor-pointer">
+        <Link to={`/news/${id}`} className="text-orange-500 w-fit font-semibold cursor-pointer">
           Read More
-        </p>
+        </Link>
 
         <div className="flex justify-between items-center mt-4">
           <div className="flex items-center gap-1 text-orange-400">
