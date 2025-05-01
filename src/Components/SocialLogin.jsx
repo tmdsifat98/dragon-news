@@ -1,10 +1,23 @@
-import React from "react";
+import React, { use } from "react";
 import { FcGoogle } from "react-icons/fc";
 import { FaGithub } from "react-icons/fa";
+import { AuthContext } from "../Contexts/AuthContext";
 const SocialLogin = () => {
+  const { googleLogin } = use(AuthContext);
+  const handleGoogleLogin = () => {
+    googleLogin()
+      .then((res) => {
+        console.log(res);
+        alert("login successful");
+      })
+      .catch((err) => console.log(err));
+  };
   return (
     <div className="flex flex-col gap-2">
-      <button className="btn btn-secondary btn-outline">
+      <button
+        onClick={handleGoogleLogin}
+        className="btn btn-secondary btn-outline"
+      >
         <FcGoogle />
         Login with Google
       </button>

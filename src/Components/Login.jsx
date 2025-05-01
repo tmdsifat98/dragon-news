@@ -13,6 +13,7 @@ const Login = () => {
       .then((res) => {
         console.log(res);
         navigate("/");
+        alert("Login successfull");
       })
       .catch((err) => console.log(err));
   };

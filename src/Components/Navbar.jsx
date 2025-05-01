@@ -10,6 +10,7 @@ const Navbar = () => {
       alert("Signed out");
     });
   };
+  console.log(user);
   return (
     <div className="flex justify-between">
       <div></div>
@@ -20,7 +21,7 @@ const Navbar = () => {
       </ul>
       <div className="flex gap-2 items-center">
         <h1>{user?.displayName}</h1>
-        {user?<img className="h-12 w-12" src={user.photoURL} />:<img src={userImg} alt="" />}
+        {user?.photoURL?<img className="h-12 w-12 rounded-full" src={user.photoURL} />:<img src={userImg} alt="" />}
         {user ? (
           <button
             className="btn btn-primary px-9 rounded-none"
