@@ -6,7 +6,7 @@ const SocialLogin = () => {
   const { googleLogin } = use(AuthContext);
   const handleGoogleLogin = () => {
     googleLogin()
-      .then((res) => {
+      ?.then((res) => {
         console.log(res);
         alert("login successful");
       })

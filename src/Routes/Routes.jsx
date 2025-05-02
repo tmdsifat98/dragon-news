@@ -8,6 +8,7 @@ import Register from "../Components/Register";
 import AuthLayout from "../Layouts/AuthLayout";
 import PrivateRoute from "./PrivateRoute";
 import Loader from "../Components/Loader";
+import ErrorPage from "../Pages/ErrorPage";
 
 const router = createBrowserRouter([
   {
@@ -19,7 +20,7 @@ const router = createBrowserRouter([
         path: "categories/:id",
         Component: NewsCard,
         loader: () => fetch("/news.json"),
-        hydrateFallbackElement: <Loader/>,
+        hydrateFallbackElement: <Loader />,
       },
     ],
   },
@@ -31,7 +32,7 @@ const router = createBrowserRouter([
       </PrivateRoute>
     ),
     loader: () => fetch("/news.json"),
-    hydrateFallbackElement: <Loader/>,
+    hydrateFallbackElement: <Loader />,
   },
   {
     path: "/auth",
@@ -41,5 +42,6 @@ const router = createBrowserRouter([
       { path: "/auth/register", Component: Register },
     ],
   },
+  { path: "*", Component: ErrorPage },
 ]);
 export default router;

@@ -14,8 +14,8 @@ const Root = () => {
       <header>
         <Header />
       </header>
-      <div className="w-11/12 mx-auto py-3 mt-5 bg-base-200 flex items-center">
-        <button className="btn btn-secondary mx-3">Latest</button>
+      <div className="w-11/12 mx-auto mt-5 bg-base-200 flex items-center">
+        <button className="btn btn-secondary py-6 px-12">Latest</button>
         <MarqueTag />
       </div>
       <nav className="w-11/12 mx-auto my-5">
