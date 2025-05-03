@@ -2,6 +2,7 @@ import React, { use } from "react";
 import { Link, useNavigate } from "react-router";
 import { AuthContext } from "../Contexts/AuthContext";
 import { updateProfile } from "firebase/auth";
+import Swal from "sweetalert2";
 
 const Register = () => {
   const navigate = useNavigate();
@@ -20,12 +21,15 @@ const Register = () => {
           photoURL: photo,
         })
           .then(() => {
-            console.log("profile updaetd");
             navigate("/");
+            Swal.fire({
+                      title: "Sign up Successfull",
+                      icon: "success",
+                      draggable: true,
+                    });
           })
-          .catch((err) => console.log(err));
       })
-      .catch((err) => console.log(err));
+      .catch((err) => alert(err.message));
   };
   return (
     <div className=" flex justify-center items-center min-h-[calc(100vh-78px)]">

@@ -7,10 +7,9 @@ const Navbar = () => {
   const { user, logOut } = use(AuthContext);
   const handleLogOut = () => {
     logOut()?.then(() => {
-      alert("Signed out");
+      
     });
   };
-  console.log(import.meta.env.VITE_authDomain);
   return (
     <div className="flex justify-between">
       <div></div>

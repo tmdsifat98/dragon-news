@@ -1,6 +1,7 @@
 import React, { use } from "react";
 import { Link, Navigate, useNavigate } from "react-router";
 import { AuthContext } from "../Contexts/AuthContext";
+import Swal from "sweetalert2";
 
 const Login = () => {
   const navigate = useNavigate();
@@ -10,12 +11,23 @@ const Login = () => {
     const email = e.target.email.value;
     const password = e.target.password.value;
     loginUser(email, password)
-      .then((res) => {
-        console.log(res);
+      .then(() => {
         navigate("/");
-        alert("Login successfull");
+        Swal.fire({
+          title: "Login Successfull",
+          icon: "success",
+          draggable: true,
+        });
       })
-      .catch((err) => console.log(err));
+      .catch((err) => {
+        if (err.message == "Firebase: Error (auth/user-disabled).") {
+          alert("Your account is suspended");
+        } else if (
+          err.message == "Firebase: Error (auth/invalid-credential)."
+        ) {
+          alert("Invalid userName or Password");
+        }
+      });
   };
   return (
     <div className=" flex justify-center items-center h-[calc(100vh-78px)]">
@@ -28,6 +40,7 @@ const Login = () => {
               name="email"
               className="input"
               placeholder="Email"
+              required
             />
             <label className="label">Password</label>
             <input
@@ -35,6 +48,7 @@ const Login = () => {
               name="password"
               className="input"
               placeholder="Password"
+              required
             />
             <div>
               <a className="link link-hover">Forgot password?</a>

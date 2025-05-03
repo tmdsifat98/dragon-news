@@ -9,6 +9,7 @@ import {
   signOut,
 } from "firebase/auth";
 import { auth } from "../Firebase/firebase.config";
+import Swal from "sweetalert2";
 
 const ContextProvider = ({ children }) => {
   const googleProvider = new GoogleAuthProvider();
@@ -28,7 +29,11 @@ const ContextProvider = ({ children }) => {
   };
   const logOut = () => {
     signOut(auth);
-    alert("Logged out successfully");
+    Swal.fire({
+      title: "Logged out Successfull",
+      icon: "error",
+      draggable: true,
+    });
   };
   useEffect(() => {
     const unSubscribe = onAuthStateChanged(auth, (currentUser) => {
