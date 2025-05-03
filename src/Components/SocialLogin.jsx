@@ -4,18 +4,22 @@ import { FaGithub } from "react-icons/fa";
 import { AuthContext } from "../Contexts/AuthContext";
 import Swal from "sweetalert2";
 const SocialLogin = () => {
-  const { googleLogin } = use(AuthContext);
+  const { googleLogin, user } = use(AuthContext);
   const handleGoogleLogin = () => {
-    googleLogin()
-      ?.then((res) => {
-        Swal.fire({
-          title: "Login successfull",
-          icon: "success",
-          draggable: true,
-        });
-        console.log(res);
-      })
-      .catch((err) => console.log(err));
+    if (!user) {
+      googleLogin()
+        ?.then((res) => {
+          Swal.fire({
+            title: "Login successfull",
+            icon: "success",
+            draggable: true,
+          });
+          console.log(res);
+        })
+        .catch((err) => console.log(err));
+    } else {
+      alert("Please log out first from the current account");
+    }
   };
   return (
     <div className="flex flex-col gap-2">
